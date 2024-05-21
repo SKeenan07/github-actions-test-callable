@@ -9,6 +9,9 @@ outputs:
 runs:
   using: composite
   steps: 
+    - name: check out code
+      uses: actions/checkout@v4
+
     - name: List files
       run: ls -la
       shell: bash
