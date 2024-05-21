@@ -21,7 +21,7 @@ runs:
     - name: check out code
       uses: actions/checkout@v4
       with: 
-        name: skeenan07/github-actions-test-callable
+        repository: skeenan07/github-actions-test-callable
         ref: main
 
     - name: check directory
