@@ -12,11 +12,16 @@ runs:
     - name: check out code
       uses: actions/checkout@v4
 
+    - name: print working directory
+      run: pwd
+      shell: bash
+      
     - name: List files
       run: ls -la
       shell: bash
 
     - name: Run script
       id: check-macos-update
-      run: ./check-for-macOS-update.sh
+      run: ./action-1/check-for-macOS-update.sh
       shell: bash
+      
