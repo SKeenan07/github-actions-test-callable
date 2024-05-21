@@ -1,0 +1,15 @@
+name: Check for macOS Update
+description: Check for macOS update released in the last week
+
+outputs:
+  updates-available: 
+    description: 'iOS update available'
+    value: ${{ steps.check-ios-update.outputs.updates-available }}
+
+runs:
+  using: composite
+  steps: 
+    - name: Run script
+      id: check-macos-update
+      run: ./action-1/check-for-macOS-update.sh
+      shell: bash

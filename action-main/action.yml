@@ -1,0 +1,38 @@
+name: Main Action
+description: calls other actions in this repo
+
+inputs:
+  platform:
+    description: 'Platform to check for updates'
+    required: true
+    default: 'macos'
+  var-2:
+    description: 'Input 2'
+    required: false
+    default: 'Hello'
+  var-3:
+    description: 'Input 3'
+    required: false
+    default: 'World'
+
+runs:
+  using: composite
+  steps: 
+    - name: check macos updates
+      id: check-macos-updates
+      uses: skeenan07/github-actions-test-callable/action-1@main
+      if: ${{ inputs.platform == 'macos' }}
+
+    - name: check ios updates
+      id: check-ios-updates
+      uses: skeenan07/github-actions-test-callable/action-2@main
+      if: ${{ inputs.platform == 'ios' }}
+
+    - name: run action 3
+      id: run-action-3
+      uses: skeenan07/github-actions-test-callable/action-3@main
+      if: ${{ steps.check-macos-updates.outputs.updates-available == 'true' || steps.check-ios-updates.outputs.updates-available == 'true'}}
+      with:
+        var-1: ${{ inputs.platform }}
+        var-2: ${{ inputs.var-2 }}
+        var-3: ${{ inputs.var-3 }}
