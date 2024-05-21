@@ -18,6 +18,11 @@ inputs:
 runs:
   using: composite
   steps: 
+    - name: check directory
+      id: check-directory
+      run: ls -la
+      shell: bash
+
     - name: check macos updates
       id: check-macos-updates
       uses: skeenan07/github-actions-test-callable/action-1@main
