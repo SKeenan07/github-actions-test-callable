@@ -15,14 +15,6 @@ runs:
         repository: skeenan07/github-actions-test-callable
         ref: main
 
-    - name: print working directory
-      run: pwd
-      shell: bash
-      
-    - name: List files
-      run: ls -la
-      shell: bash
-
     - name: Run script
       id: check-macos-update
       run: ./action-1/check-for-macOS-update.sh

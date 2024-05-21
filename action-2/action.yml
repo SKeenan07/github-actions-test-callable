@@ -9,6 +9,12 @@ outputs:
 runs:
   using: composite
   steps: 
+    - name: check out code
+      uses: actions/checkout@v4
+      with: 
+        repository: skeenan07/github-actions-test-callable
+        ref: main
+        
     - name: Run script
       id: check-ios-update
       run: ./action-2/check-for-iOS-update.sh

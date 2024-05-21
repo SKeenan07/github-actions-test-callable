@@ -4,6 +4,11 @@ description: Run the third action in this repo
 runs:
   using: composite
   steps: 
+    - name: check out code
+      uses: actions/checkout@v4
+      with: 
+        repository: skeenan07/github-actions-test-callable
+        ref: main
     - name: Run script
       id: hello-world
       run: ./action-3/hello-world.sh
