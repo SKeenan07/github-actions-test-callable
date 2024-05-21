@@ -3,8 +3,8 @@ description: Check for macOS update released in the last week
 
 outputs:
   updates-available: 
-    description: 'iOS update available'
-    value: ${{ steps.check-ios-update.outputs.updates-available }}
+    description: 'macOS update available'
+    value: ${{ steps.check-macos-update.outputs.updates-available }}
 
 runs:
   using: composite
