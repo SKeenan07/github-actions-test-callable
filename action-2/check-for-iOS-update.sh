@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 appleSecurityReleasesURL="https://support.apple.com/en-us/HT201222"
 
