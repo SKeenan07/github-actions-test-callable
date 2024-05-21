@@ -1,6 +1,20 @@
 name: Run third action
 description: Run the third action in this repo
 
+inputs:
+  platform:
+    description: 'Platform to check for updates'
+    required: true
+    default: 'macos'
+  var-2:
+    description: 'Input 2'
+    required: false
+    default: 'Hello'
+  var-3:
+    description: 'Input 3'
+    required: false
+    default: 'World'
+
 runs:
   using: composite
   steps: 
