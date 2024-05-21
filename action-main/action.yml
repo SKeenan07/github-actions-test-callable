@@ -20,7 +20,10 @@ runs:
   steps: 
     - name: check out code
       uses: actions/checkout@v4
-      
+      with: 
+        name: skeenan07/github-actions-test-callable
+        ref: main
+
     - name: check directory
       id: check-directory
       run: ls -la
