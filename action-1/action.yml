@@ -11,6 +11,9 @@ runs:
   steps: 
     - name: check out code
       uses: actions/checkout@v4
+      with: 
+        repository: skeenan07/github-actions-test-callable
+        ref: main
 
     - name: print working directory
       run: pwd
