@@ -9,6 +9,10 @@ outputs:
 runs:
   using: composite
   steps: 
+    - name: List files
+      run: ls -la
+      shell: bash
+
     - name: Run script
       id: check-macos-update
       run: ./action-1/check-for-macOS-update.sh
