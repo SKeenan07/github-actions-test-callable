@@ -26,5 +26,5 @@ runs:
 
     - name: Run script
       id: hello-world
-      run: ./action-3/hello-world.sh
+      run: ./action-3/hello-world.sh "${{ inputs.platform }}" "${{ inputs.var-2 }}" "${{ inputs.var-3 }}"
       shell: bash

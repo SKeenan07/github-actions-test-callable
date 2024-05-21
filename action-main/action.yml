@@ -33,6 +33,6 @@ runs:
       uses: skeenan07/github-actions-test-callable/action-3@main
       if: ${{ steps.check-macos-updates.outputs.updates-available == 'true' || steps.check-ios-updates.outputs.updates-available == 'true'}}
       with:
-        var-1: ${{ inputs.platform }}
+        platform: ${{ inputs.platform }}
         var-2: ${{ inputs.var-2 }}
         var-3: ${{ inputs.var-3 }}
