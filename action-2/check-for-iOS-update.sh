@@ -3,7 +3,7 @@
 appleSecurityReleasesURL="https://support.apple.com/en-us/HT201222"
 
 latestiOSVersion=$(curl -s "$appleSecurityReleasesURL" | grep "The latest version of iOS" | grep -Eo "[0-9]{2}([.][0-9]){1,2}")
-latestVersionData=$(curl -s "$appleSecurityReleasesURL" | grep -A 2 "iOS $latestiOSVersion")
+latestVersionData=$(curl -s "$appleSecurityReleasesURL" | grep -A 3 "iOS $latestiOSVersion")
 lastUpdate=$(echo "$latestVersionData" | grep -Eo "[0-9]{2} [A-Z][a-z]{2} [0-9]{4}")
 
 # lastUpdate=$(curl -s https://jamf-patch.jamfcloud.com/v1/software/macos | grep lastModified | awk -F ": " '{ print $2 }' | tr -d '",')
