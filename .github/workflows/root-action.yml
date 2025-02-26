@@ -1,0 +1,38 @@
+name: Root Action
+
+on:
+  workflow_call:
+    inputs:
+      var-1:
+        required: true
+        type: string
+
+jobs:
+
+  run-action-1:
+    if: ${{ github.event.inputs.var-1 == 'COMPUTER' }}
+    uses: ./.github/actions-1/action.yml
+    with:
+      var-1: ${{ github.event.inputs.var-1 }}
+
+  run-action-2:
+    needs: run-action-1
+    if: ${{ github.event.inputs.var-1 == 'DEVICE' }}
+    uses: ./.github/actions-2/action.yml
+    with:
+      var-1: ${{ github.event.inputs.var-1 }}
+
+  updates-available:
+    runs-on: ubuntu-latest
+    needs: [run-action-1, run-action-2]
+    if: ${{ needs.run-action-1.outputs.updates_available == 'true' }} || ${{ needs.run-action-2.outputs.updates_available == 'true' }}
+    steps:
+      - run: echo "Updates are available"
+
+  updates-not-available:
+    runs-on: ubuntu-latest
+    needs: [run-action-1, run-action-2, updates-available]
+    if: ${{ needs.run-action-1.outputs.updates_available == 'false' }} || ${{ needs.run-action-2.outputs.updates_available == 'false' }}
+    steps:
+      - run: echo "No updates are available"
+

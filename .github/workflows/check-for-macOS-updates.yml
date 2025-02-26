@@ -1,0 +1,19 @@
+name: Check for macOS Updates
+
+on:
+  workflow_call:
+    outputs:
+      updates_available:
+        description: 'Whether updates are available'
+        value: ${{ jobs.check-for-updates.outputs.updates_available }}
+
+jobs:
+  check-for-updates:
+    runs-on: ubuntu-latest
+    outputs:
+      updates_available: ${{ steps.check-for-updates.outputs.updates_available }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Check for macOS Updates
+        id: check-for-updates
+        run: ./action-1/check-for-macOS-updates.sh

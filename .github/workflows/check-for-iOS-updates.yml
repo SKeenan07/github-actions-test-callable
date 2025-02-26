@@ -1,0 +1,19 @@
+name: Check for iOS Updates
+
+on:
+  workflow_call:
+    outputs:
+      updates_available:
+        description: 'Whether updates are available'
+        value: ${{ jobs.check-for-updates.outputs.updates_available }}
+
+jobs:
+  check-for-updates:
+    runs-on: ubuntu-latest
+    outputs:
+      updates_available: ${{ steps.check-for-updates.outputs.updates_available }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Check for iOS Updates
+        id: check-for-updates
+        run: ./action-2/check-for-iOS-updates.sh
