@@ -22,14 +22,14 @@ jobs:
 
   run-action-1:
     if: ${{ github.event.inputs.var-1 == 'COMPUTER' }}
-    uses: ./.github/workflows/check-for-macOS-updates.yml@main
+    uses: ./.github/workflows/check-for-macOS-updates.yml
     with:
       var-1: ${{ github.event.inputs.var-1 }}
 
   run-action-2:
     needs: run-action-1
     if: ${{ github.event.inputs.var-1 == 'DEVICE' }}
-    uses: ./.github/workflows/check-for-iOS-updates.yml@main
+    uses: ./.github/workflows/check-for-iOS-updates.yml
     with:
       var-1: ${{ github.event.inputs.var-1 }}
 
