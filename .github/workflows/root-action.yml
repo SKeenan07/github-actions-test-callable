@@ -7,6 +7,17 @@ on:
         required: true
         type: string
 
+  workflow_dispatch:
+    inputs:
+      var-1:
+        description: 'Group type: COMPUTER or DEVICE'
+        required: true
+        type: choice
+        options:
+          - COMPUTER
+          - DEVICE
+        default: COMPUTER
+
 jobs:
 
   run-action-1:
